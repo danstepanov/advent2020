@@ -3,7 +3,7 @@ var numbers = [1975, 1600, 113, 1773, 1782, 1680, 1386, 1682, 1991, 1640, 1760, 
 var i;
 var j;
 var k;
-function myFunction() {
+var numbersThatSumTo2020 = function () {
     for (i = 0; i < numbers.length; i++) {
         for (j = 0; j < numbers.length; j++) {
             for (k = 1; k < numbers.length; k++) {
@@ -13,5 +13,5 @@ function myFunction() {
             }
         }
     }
-}
-console.log(myFunction())
+};
+console.log(numbersThatSumTo2020());

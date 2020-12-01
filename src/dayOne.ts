@@ -4,7 +4,7 @@ var i: number
 var j: number
 var k: number
 
-function myFunction(): string | void {
+const numbersThatSumTo2020 = (): string | void => {
     for (i = 0; i < numbers.length; i++) {
         for (j = 0; j < numbers.length; j++) {
             for (k = 1; k < numbers.length; k++) {
@@ -14,4 +14,6 @@ function myFunction(): string | void {
             }
         }
     }
-  }
+}
+
+console.log(numbersThatSumTo2020())
