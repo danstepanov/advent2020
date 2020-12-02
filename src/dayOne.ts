@@ -5,8 +5,10 @@ var j: number
 var k: number
 
 const numbersThatSumTo2020 = (): string | void => {
+    // Part One
     for (i = 0; i < numbers.length; i++) {
         for (j = 0; j < numbers.length; j++) {
+            // Part Two
             for (k = 1; k < numbers.length; k++) {
                 if (numbers[i] + numbers[j] + numbers[k] === 2020) {
                     return `${numbers[i]}, ${numbers[j]}, ${numbers[k]}`

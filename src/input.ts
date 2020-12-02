@@ -999,14 +999,11 @@ var string = `8-9 n: nnnnnnnnn,
 10-11 q: nqqqqgqfqpf,
 4-15 b: fctbwzqnwbnvqbqlb`
 
-
 const resultss = string.replace(/(\r\n|\n|\r)/gm, "").split(',')
 
 const final = resultss.map(result => {
     const isolatedValues = result.replace("-", " ").replace(":", "").split(" ")
     return ({min: Number(isolatedValues[0]), max: Number(isolatedValues[1]), char: isolatedValues[2], password: isolatedValues[3]})
 })
-
-// final.pop()
 
 export default final
