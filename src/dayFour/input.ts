@@ -1,12 +1,3 @@
-// var string = `byr:2024 iyr:2016
-// eyr:2034 ecl:zzz pid:985592671 hcl:033b48
-// hgt:181 cid:166
-
-// hgt:66cm
-// pid:152cm
-// hcl:cfb18a eyr:1947
-// byr:2020 ecl:zzz iyr:2029`
-
 var string = `byr:2024 iyr:2016
 eyr:2034 ecl:zzz pid:985592671 hcl:033b48
 hgt:181 cid:166
@@ -1177,21 +1168,7 @@ iyr:2010 eyr:2021
 hgt:160cm hcl:#c0946f
 byr:1959`
 
-// var string = `ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
-// byr:1937 iyr:2017 cid:147 hgt:183cm
-
-// iyr:2013 ecl:amb cid:350 eyr:2023 pid:028048884
-// hcl:#cfa07d byr:1929
-
-// hcl:#ae17e1 iyr:2013
-// eyr:2024
-// ecl:brn pid:760753108 byr:1931
-// hgt:179cm
-
-// hcl:#cfa07d eyr:2025 pid:166559648
-// iyr:2011 ecl:brn hgt:59in`
-
 var stringArray = string.replace(/\n\n/g, ',').replace(/\n/g, ' ').split(',')
-// console.log(stringArray)
+
 export default stringArray
 
