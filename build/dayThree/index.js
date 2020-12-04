@@ -6,20 +6,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var input_1 = __importDefault(require("./input"));
 // Part One
 // Right 3, Down 1
-// var j: number
-// var count: number = 0
-// var iterationCounter: number = 0
-// for (j = 0; j < inputArray.length; j++) {
-//     if (inputArray[j].charAt(iterationCounter) === '#') {
-//         count++
-//     }
-//     if (iterationCounter + 3 < inputArray[j].length) {
-//         iterationCounter += 3
-//     } else {
-//         iterationCounter += 3 - inputArray[j].length
-//     }
-// }
-// console.log(count)
+var j;
+var count = 0;
+var iterationCounter = 0;
+for (j = 0; j < input_1.default.length; j++) {
+    if (input_1.default[j].charAt(iterationCounter) === '#') {
+        count++;
+    }
+    if (iterationCounter + 3 < input_1.default[j].length) {
+        iterationCounter += 3;
+    }
+    else {
+        iterationCounter += 3 - input_1.default[j].length;
+    }
+}
+console.log(count);
 // Part Two
 // Right 1, Down 1
 var a;
