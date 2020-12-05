@@ -10,8 +10,8 @@ interface passwordSet {
 var passwordSets: passwordSet[] = input
 const results = passwordSets.filter(passwordSet => {
     // Part One
-    // const characterCount = passwordSet.password.split(passwordSet.char).length - 1
-    // return characterCount >= passwordSet.min && characterCount <= passwordSet.max
+    const characterCount = passwordSet.password.split(passwordSet.char).length - 1
+    return characterCount >= passwordSet.min && characterCount <= passwordSet.max
 
     // Part Two
     if (passwordSet.password[passwordSet.min - 1] === passwordSet.char && passwordSet.password[passwordSet.max - 1] === passwordSet.char) {

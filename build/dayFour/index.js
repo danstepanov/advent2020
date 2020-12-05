@@ -12,7 +12,6 @@ var newArray = input_1.default.map(function (passport) {
     return obj;
 });
 var count = 0;
-var otherCount = 0;
 newArray.forEach(function (passport) {
     // Missing Value Check
     if (passport['byr'] === undefined || passport['iyr'] === undefined || passport['eyr'] === undefined || passport['hgt'] === undefined || passport['hcl'] === undefined || passport['ecl'] === undefined || passport['pid'] === undefined) {
@@ -50,7 +49,6 @@ newArray.forEach(function (passport) {
     if (passport['hcl'].charAt(0) !== '#' || passport['hcl'].slice(1).length !== 6 || !colorCheck.test(passport['hcl'].slice(1))) {
         return;
     }
-    console.log(passport['hcl']);
     // Eye Color
     if (passport['ecl'] !== 'amb' && passport['ecl'] !== 'blu' && passport['ecl'] !== 'brn' && passport['ecl'] !== 'gry' && passport['ecl'] !== 'grn' && passport['ecl'] !== 'hzl' && passport['ecl'] !== 'oth') {
         return;
@@ -62,5 +60,4 @@ newArray.forEach(function (passport) {
     }
     count++;
 });
-console.log(newArray.length);
 console.log(count);
