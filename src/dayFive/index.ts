@@ -12,7 +12,6 @@ for (i = 0; i < boardingPasses.length; i++) {
     var columnRange = [0, 7]
     var j: number
     var k: number
-    var string = ["F", "B", "F", "BBFFRRL"]
     
     // Determine Row
     for (j = 0; j < 7; j++) {
@@ -68,3 +67,21 @@ for (var l = 0; l < seatIDArray.length; l++) {
         counter++
     }
 }
+
+// Part One Alt
+// var weightArray: number[] = []
+// var count: number = 0
+// for (i = 0; i < boardingPasses.length; i++) {
+//     const array = boardingPasses[i].split('')
+//     var j: number
+//     for (j = 0; j < 7; j++) {
+//         if (array[j] === 'F') {
+//             we
+//         }
+//         if (array[j] === 'B') {
+
+//         }
+//         count++
+//     }
+
+// }

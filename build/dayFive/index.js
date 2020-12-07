@@ -16,7 +16,6 @@ for (i = 0; i < input_1.default.length; i++) {
     var columnRange = [0, 7];
     var j;
     var k;
-    var string = ["F", "B", "F", "BBFFRRL"];
     // Determine Row
     for (j = 0; j < 7; j++) {
         if (array[j] === 'F') {
@@ -53,18 +52,35 @@ for (i = 0; i < input_1.default.length; i++) {
 }
 console.log('High Score: ', highestSeatID);
 // Part Two
-// seatIDArray.sort((a, b) => a - b)
-// console.dir(seatIDArray, {'maxArrayLength': null});
-// var counter: number = 13
-// for (var l = 0; l < seatIDArray.length; l++) {
-//     if (seatIDArray[l] !== counter) {
-//         if (seatIDArray[l - 1] === seatIDArray[l] || seatIDArray[l + 1] === seatIDArray[l]) {
-//             counter++
-//         } else {
-//             console.log(counter)
-//             break
+seatIDArray.sort(function (a, b) { return a - b; });
+console.dir(seatIDArray, { 'maxArrayLength': null });
+var counter = 13;
+for (var l = 0; l < seatIDArray.length; l++) {
+    if (seatIDArray[l] !== counter) {
+        if (seatIDArray[l - 1] === seatIDArray[l] || seatIDArray[l + 1] === seatIDArray[l]) {
+            counter++;
+        }
+        else {
+            console.log(counter);
+            break;
+        }
+    }
+    else {
+        counter++;
+    }
+}
+// Part One Alt
+// var weightArray: number[] = []
+// var count: number = 0
+// for (i = 0; i < boardingPasses.length; i++) {
+//     const array = boardingPasses[i].split('')
+//     var j: number
+//     for (j = 0; j < 7; j++) {
+//         if (array[j] === 'F') {
+//             we
 //         }
-//     } else {
-//         counter++
+//         if (array[j] === 'B') {
+//         }
+//         count++
 //     }
 // }
