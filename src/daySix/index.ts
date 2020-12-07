@@ -1,5 +1,5 @@
 import groups from './input'
-import stringGroups from './input2'
+
 var sampleStringArray1 = groups.split(/\n\s*\n/).map(string => string.replace(/\n/g, ",").split(','))
 // loop through group
 var uniqueAnswers = sampleStringArray1.map(group => {
@@ -72,6 +72,6 @@ for (var z = 0; z < numberOfGroups.length; z++) {
     }
 }
 
-console.log(validCount)
+console.log('Part 2: ', validCount)
 
-// console.log(uniqueAnswers.reduce((a,b) => a + b, 0))
+console.log('Part 1: ', uniqueAnswers.reduce((a,b) => a + b, 0))
