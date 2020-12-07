@@ -1,8 +1,8 @@
 import groups from './input'
 import stringGroups from './input2'
-
+var sampleStringArray1 = groups.split(/\n\s*\n/).map(string => string.replace(/\n/g, ",").split(','))
 // loop through group
-var uniqueAnswers = groups.map(group => {
+var uniqueAnswers = sampleStringArray1.map(group => {
     var uniqueCharacters: string[] = []
     group.map(answer => {
         // create array for each string
@@ -20,7 +20,6 @@ var uniqueAnswers = groups.map(group => {
     return uniqueCharacters.length
 })
 
-var sampleStringArray1 = groups.split(/\n\s*\n/).map(string => string.replace(/\n/g, ",").split(','))
 var sampleStringArray2 = groups.split(/\n\s*\n/).map(string => string.replace(/\n/g, ""))
 
 var numberOfGroups = sampleStringArray1.map(group => {
