@@ -51,14 +51,46 @@ const getLastNumbers = (activeNumberIndex, backNumber) => {
 
 // find number that isn't sum of 25 before it
 // start with last number as active number
-for (var i = numberList.length - 1; i >= 0; i--) {
-    // create array that is all possible sums of 25 values
-    // loop through last 25 values
-    // if not a match, add to array of values that do not sum
-    const lastNumbers = getLastNumbers(i, 25)
-    if (!lastNumbers.includes(numberList[i]) && lastNumbers.length > 0) {
-        doNotSumList.push(numberList[i])
+const findNumberThatDoesNotSum = () => {
+    for (var i = numberList.length - 1; i >= 0; i--) {
+        // create array that is all possible sums of 25 values
+        // loop through last 25 values
+        // if not a match, add to array of values that do not sum
+        const lastNumbers = getLastNumbers(i, 25)
+        if (!lastNumbers.includes(numberList[i]) && lastNumbers.length > 0) {
+            doNotSumList.push(numberList[i])
+        }
     }
+    return doNotSumList[0]
 }
 
-console.log(doNotSumList)
+// Part Two
+const invalidNumber: number = findNumberThatDoesNotSum()
+// const invalidNumber: number = 127
+
+const findContiguousSum = (invalidNumber, numberList) => {
+    for (var i = 0; i < numberList.length; i++) {
+        var contiguousNumbers: number[] = []
+        contiguousNumbers.push(numberList[i])
+        for (var j = i + 1; j < numberList.length; j++) {
+            var currentContiguousSum: number = 0
+            if (contiguousNumbers.length === 0) {
+                currentContiguousSum = 0
+            } else if (contiguousNumbers.length === 1) {
+                currentContiguousSum = contiguousNumbers[0]
+            } else {
+                currentContiguousSum = contiguousNumbers.reduce((a, b) => a + b)
+            }
+            if (numberList[i] + numberList[j] + currentContiguousSum === invalidNumber) {
+                contiguousNumbers.shift()
+                contiguousNumbers.push(numberList[j])
+                return [contiguousNumbers[0], contiguousNumbers[contiguousNumbers.length - 1]]
+            } else {
+                contiguousNumbers.push(numberList[j])
+            }
+        }
+    }
+    
+}
+
+console.log(findContiguousSum(invalidNumber, numberList)?.reduce((a,b) => a+b))
