@@ -23,6 +23,7 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 var input_1 = __importDefault(require("./input"));
 var numberList = input_1.default.map(function (x) { return +x; });
@@ -64,22 +65,14 @@ var findNumberThatDoesNotSum = function () {
 // Part Two
 var invalidNumber = findNumberThatDoesNotSum();
 // const invalidNumber: number = 127
+// console.log()
 var findContiguousSum = function (invalidNumber, numberList) {
     for (var i = 0; i < numberList.length; i++) {
         var contiguousNumbers = [];
         contiguousNumbers.push(numberList[i]);
         for (var j = i + 1; j < numberList.length; j++) {
             var currentContiguousSum = 0;
-            if (contiguousNumbers.length === 0) {
-                currentContiguousSum = 0;
-            }
-            else if (contiguousNumbers.length === 1) {
-                currentContiguousSum = contiguousNumbers[0];
-            }
-            else {
-                currentContiguousSum = contiguousNumbers.reduce(function (a, b) { return a + b; });
-            }
-            if (numberList[i] + numberList[j] + currentContiguousSum === invalidNumber) {
+            if (numberList[j] + currentContiguousSum === invalidNumber) {
                 contiguousNumbers.shift();
                 contiguousNumbers.push(numberList[j]);
                 return [contiguousNumbers[0], contiguousNumbers[contiguousNumbers.length - 1]];
@@ -90,4 +83,5 @@ var findContiguousSum = function (invalidNumber, numberList) {
         }
     }
 };
-console.log(findContiguousSum(invalidNumber, numberList));
+console.log((_a = findContiguousSum(invalidNumber, numberList)) === null || _a === void 0 ? void 0 : _a.reduce(function (a, b) { return a + b; }));
+// console.log(findContiguousSum(invalidNumber, numberList))

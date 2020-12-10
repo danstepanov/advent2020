@@ -67,21 +67,14 @@ const findNumberThatDoesNotSum = () => {
 // Part Two
 const invalidNumber: number = findNumberThatDoesNotSum()
 // const invalidNumber: number = 127
-
+// console.log()
 const findContiguousSum = (invalidNumber, numberList) => {
     for (var i = 0; i < numberList.length; i++) {
         var contiguousNumbers: number[] = []
         contiguousNumbers.push(numberList[i])
         for (var j = i + 1; j < numberList.length; j++) {
             var currentContiguousSum: number = 0
-            if (contiguousNumbers.length === 0) {
-                currentContiguousSum = 0
-            } else if (contiguousNumbers.length === 1) {
-                currentContiguousSum = contiguousNumbers[0]
-            } else {
-                currentContiguousSum = contiguousNumbers.reduce((a, b) => a + b)
-            }
-            if (numberList[i] + numberList[j] + currentContiguousSum === invalidNumber) {
+            if (numberList[j] + currentContiguousSum === invalidNumber) {
                 contiguousNumbers.shift()
                 contiguousNumbers.push(numberList[j])
                 return [contiguousNumbers[0], contiguousNumbers[contiguousNumbers.length - 1]]
@@ -93,4 +86,5 @@ const findContiguousSum = (invalidNumber, numberList) => {
     
 }
 
-console.log(findContiguousSum(invalidNumber, numberList)?.reduce((a,b) => a+b))
+console.log(findContiguousSum(invalidNumber, numberList)?.reduce((a, b) => a + b))
+// console.log(findContiguousSum(invalidNumber, numberList))
