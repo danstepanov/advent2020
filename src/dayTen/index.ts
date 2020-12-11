@@ -44,6 +44,7 @@
 
 import itemList from './input'
 var numberList: number[] = itemList.map(x => +x).sort((a, b) => a - b)
+console.log(numberList)
 numberList.push(numberList[numberList.length - 1] + 3)
 const firstThree = [numberList[0], numberList[1], numberList[2]]
 var joltsOfOne: number = firstThree[0] === 1 ? 1 : 0
@@ -62,4 +63,25 @@ for (var i = 0; i < numberList.length; i++) {
     }
 }
 
-console.log(joltsOfOne*joltsOfThree)
+// console.log(joltsOfOne * joltsOfThree)
+
+interface numberPath {
+    number: number
+    paths: number
+}
+
+// Part 2
+const totalNumberOfDistinctPath = (numberList: number[]): numberPath[] => {
+    var totalPaths: numberPath[] = [{number:0, paths: 1}]
+    for (var i: number = 0; i < numberList.length; i++) {
+        const previousOne = totalPaths.find(item => item.number === numberList[i] - 1)?.paths || 0
+        const previousTwo = totalPaths.find(item => item.number === numberList[i] - 2)?.paths || 0
+        const previousThree = totalPaths.find(item => item.number === numberList[i] - 3)?.paths || 0
+        const pathSum = previousOne + previousTwo + previousThree
+        totalPaths.push({number: numberList[i], paths: pathSum})
+    }
+
+    return totalPaths
+}
+
+console.dir(totalNumberOfDistinctPath(numberList), {'maxArrayLength': null})

@@ -47,11 +47,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // 3`.split(/\n/g)
 var input_1 = __importDefault(require("./input"));
 var numberList = input_1.default.map(function (x) { return +x; }).sort(function (a, b) { return a - b; });
+console.log(numberList);
 numberList.push(numberList[numberList.length - 1] + 3);
 var firstThree = [numberList[0], numberList[1], numberList[2]];
 var joltsOfOne = firstThree[0] === 1 ? 1 : 0;
 var joltsOfTwo = firstThree[0] === 2 ? 1 : 0;
 var joltsOfThree = firstThree[0] === 3 ? 1 : 0;
+// Part 1
 for (var i = 0; i < numberList.length; i++) {
     var nextThreeAdapters = [numberList[i + 1], numberList[i + 2], numberList[i + 2]];
     if (numberList[i] + 1 === nextThreeAdapters[0] || numberList[i] + 1 === nextThreeAdapters[1] || numberList[i] + 1 === nextThreeAdapters[2]) {
@@ -64,4 +66,17 @@ for (var i = 0; i < numberList.length; i++) {
         joltsOfThree++;
     }
 }
-console.log(joltsOfOne * joltsOfThree);
+// Part 2
+var totalNumberOfDistinctPath = function (numberList) {
+    var _a, _b, _c;
+    var totalPaths = [{ number: 0, paths: 1 }];
+    for (var i = 0; i < numberList.length; i++) {
+        var previousOne = ((_a = totalPaths.find(function (item) { return item.number === numberList[i] - 1; })) === null || _a === void 0 ? void 0 : _a.paths) || 0;
+        var previousTwo = ((_b = totalPaths.find(function (item) { return item.number === numberList[i] - 2; })) === null || _b === void 0 ? void 0 : _b.paths) || 0;
+        var previousThree = ((_c = totalPaths.find(function (item) { return item.number === numberList[i] - 3; })) === null || _c === void 0 ? void 0 : _c.paths) || 0;
+        var pathSum = previousOne + previousTwo + previousThree;
+        totalPaths.push({ number: numberList[i], paths: pathSum });
+    }
+    return totalPaths;
+};
+console.dir(totalNumberOfDistinctPath(numberList), { 'maxArrayLength': null });
