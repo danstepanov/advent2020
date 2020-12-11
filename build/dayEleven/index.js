@@ -122,18 +122,21 @@ var isEqual = function (firstArray, secondArray) {
     }
     return false;
 };
-var arrayEquals = function (a, b) {
-    return Array.isArray(a) &&
-        Array.isArray(b) &&
-        a.length === b.length &&
-        a.every(function (val, index) { return val === b[index]; });
-};
-// console.log(isEqual(secondSeatMapArray, newSecondMap))
-// console.log(isEqual(thirdSeatMapArray, newThirdMap))
-// console.log(isEqual(fourthSeatMapArray, newFourthMap))
-// console.log(isEqual(fifthSeatMapArray, newFifthMap))
-// console.log(isEqual(sixthSeatMapArray, newSixthMap))
-// console.log(isEqual(sixthSeatMapArray, newSeventhMap))
+// this is wrong, it does not work for secondSeatMapArray and newSecondMap (which do match)
+// const arrayEquals = (a, b) => {
+//     return Array.isArray(a) &&
+//       Array.isArray(b) &&
+//       a.length === b.length &&
+//       a.every((val, index) => val === b[index]);
+//   }
+console.log(isEqual(secondSeatMapArray, newSecondMap));
+console.log(secondSeatMapArray);
+console.log(newSecondMap);
+// console.log(arrayEquals(thirdSeatMapArray, newThirdMap))
+// console.log(arrayEquals(fourthSeatMapArray, newFourthMap))
+// console.log(arrayEquals(fifthSeatMapArray, newFifthMap))
+// console.log(arrayEquals(sixthSeatMapArray, newSixthMap))
+// console.log(arrayEquals(sixthSeatMapArray, newSeventhMap))
 // console.log(newSeventhMap)
 var hashCount = function (seatMap) {
     var count = 0;
@@ -145,13 +148,13 @@ var hashCount = function (seatMap) {
     }
     return count;
 };
-var numberOfSeats = function (seatMap) {
-    var newSeatMap = roundPass(seatMap);
-    if (arrayEquals(seatMap, newSeatMap)) {
-        console.log('Here: ', newSeatMap);
-        console.log(hashCount(seatMap));
-        return;
-    }
-    numberOfSeats(newSeatMap);
-};
-console.log(numberOfSeats(firstSeatMapArray));
+// const numberOfSeats = (seatMap: string[][]) => {
+//     var newSeatMap: string[][] = roundPass(seatMap)
+//     if (arrayEquals(seatMap, newSeatMap)) {
+//         console.log('Here: ', newSeatMap)
+//         console.log(hashCount(seatMap))
+//         return
+//     }
+//     numberOfSeats(newSeatMap)
+// }
+// console.log(numberOfSeats(firstSeatMapArray))

@@ -82,9 +82,6 @@ L.#.L..#..
 #.#L#L#.##`.split(/\n/g))
 const sixthSeatMapArray = seatMapArray(sixthSeatMap)
 
-
-// console.log('Original: ', seatMapArray(seatMap))
-
 const roundPass = (seatMap: string[][]): string[][] => {
     // console.log('Original: ', seatMap)
     var newSeatMap: string[][] = []
@@ -196,20 +193,14 @@ const isEqual = (firstArray, secondArray): boolean => {
     return false
 }
 
-const arrayEquals = (a, b) => {
-    return Array.isArray(a) &&
-      Array.isArray(b) &&
-      a.length === b.length &&
-      a.every((val, index) => val === b[index]);
-  }
-
-// console.log(isEqual(secondSeatMapArray, newSecondMap))
-// console.log(isEqual(thirdSeatMapArray, newThirdMap))
-// console.log(isEqual(fourthSeatMapArray, newFourthMap))
-// console.log(isEqual(fifthSeatMapArray, newFifthMap))
-// console.log(isEqual(sixthSeatMapArray, newSixthMap))
-// console.log(isEqual(sixthSeatMapArray, newSeventhMap))
-// console.log(newSeventhMap)
+console.log(isEqual(secondSeatMapArray, newSecondMap))
+console.log(secondSeatMapArray)
+console.log(newSecondMap)
+console.log(isEqual(thirdSeatMapArray, newThirdMap))
+console.log(isEqual(fourthSeatMapArray, newFourthMap))
+console.log(isEqual(fifthSeatMapArray, newFifthMap))
+console.log(isEqual(sixthSeatMapArray, newSixthMap))
+console.log(isEqual(sixthSeatMapArray, newSeventhMap))
 
 const hashCount = (seatMap) => {
     var count: number = 0
@@ -221,15 +212,15 @@ const hashCount = (seatMap) => {
     return count
 }
 
-const numberOfSeats = (seatMap: string[][]) => {
-    var newSeatMap: string[][] = roundPass(seatMap)
+// const numberOfSeats = (seatMap: string[][]) => {
+//     var newSeatMap: string[][] = roundPass(seatMap)
     
-    if (arrayEquals(seatMap, newSeatMap)) {
-        console.log('Here: ', newSeatMap)
-        console.log(hashCount(seatMap))
-        return
-    }
-    numberOfSeats(newSeatMap)
-}
+//     if (arrayEquals(seatMap, newSeatMap)) {
+//         console.log('Here: ', newSeatMap)
+//         console.log(hashCount(seatMap))
+//         return
+//     }
+//     numberOfSeats(newSeatMap)
+// }
 
-console.log(numberOfSeats(firstSeatMapArray))
+// console.log(numberOfSeats(firstSeatMapArray))
