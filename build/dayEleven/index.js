@@ -14,7 +14,7 @@ var firstSeatMap = "L.LL.LL.LL\nLLLLLLL.LL\nL.L.L..L..\nLLLL.LL.LL\nL.LL.LL.LL\n
 var firstSeatMapArray = seatMapArray(firstSeatMap);
 var secondSeatMap = seatMapArray("#.##.##.##\n#######.##\n#.#.#..#..\n####.##.##\n#.##.##.##\n#.#####.##\n..#.#.....\n##########\n#.######.#\n#.#####.##".split(/\n/g));
 var secondSeatMapArray = seatMapArray(secondSeatMap);
-var thirdSeatMap = seatMapArray("#.LL.L#.##\n#LLLLLL.L#\nL.L.L..L..\n#LLL.LL.L#\n#.LL.LL.LL\n#.LLLL#.##\n..L.L.....\n#LLLLLLLL#\n#.LLLLLL.L\n#.#LLLL.##".split(/\n/g));
+var thirdSeatMap = seatMapArray("#.LL.L#.##\n#.LLLLL.L#\nL.L.L..L..\n#LLL.LL.L#\n#.LL.LL.LL\n#.LLLL#.##\n..L.L.....\n#LLLLLLLL#\n#.LLLLLL.L\n#.#LLLL.##".split(/\n/g));
 var thirdSeatMapArray = seatMapArray(thirdSeatMap);
 var fourthSeatMap = seatMapArray("#.##.L#.##\n#L###LL.L#\nL.#.#..#..\n#L##.##.L#\n#.##.LL.LL\n#.###L#.##\n..#.#.....\n#L######L#\n#.LL###L.L\n#.#L###.##".split(/\n/g));
 var fourthSeatMapArray = seatMapArray(fourthSeatMap);
@@ -22,7 +22,6 @@ var fifthSeatMap = seatMapArray("#.#L.L#.##\n#LLL#LL.L#\nL.L.L..#..\n#LLL.##.L#\
 var fifthSeatMapArray = seatMapArray(fifthSeatMap);
 var sixthSeatMap = seatMapArray("#.#L.L#.##\n#LLL#LL.L#\nL.#.L..#..\n#L##.##.L#\n#.#L.LL.LL\n#.#L#L#.##\n..L.L.....\n#L#L##L#L#\n#.LLLLLL.L\n#.#L#L#.##".split(/\n/g));
 var sixthSeatMapArray = seatMapArray(sixthSeatMap);
-// console.log('Original: ', seatMapArray(seatMap))
 var roundPass = function (seatMap) {
     // console.log('Original: ', seatMap)
     var newSeatMap = [];
@@ -122,27 +121,17 @@ var isEqual = function (firstArray, secondArray) {
     }
     return false;
 };
-// this is wrong, it does not work for secondSeatMapArray and newSecondMap (which do match)
-// const arrayEquals = (a, b) => {
-//     return Array.isArray(a) &&
-//       Array.isArray(b) &&
-//       a.length === b.length &&
-//       a.every((val, index) => val === b[index]);
-//   }
 console.log(isEqual(secondSeatMapArray, newSecondMap));
-console.log(secondSeatMapArray);
-console.log(newSecondMap);
-// console.log(arrayEquals(thirdSeatMapArray, newThirdMap))
-// console.log(arrayEquals(fourthSeatMapArray, newFourthMap))
-// console.log(arrayEquals(fifthSeatMapArray, newFifthMap))
-// console.log(arrayEquals(sixthSeatMapArray, newSixthMap))
-// console.log(arrayEquals(sixthSeatMapArray, newSeventhMap))
-// console.log(newSeventhMap)
+console.log(isEqual(thirdSeatMapArray, newThirdMap));
+console.log(isEqual(fourthSeatMapArray, newFourthMap));
+console.log(isEqual(fifthSeatMapArray, newFifthMap));
+console.log(isEqual(sixthSeatMapArray, newSixthMap));
+console.log(isEqual(sixthSeatMapArray, newSeventhMap));
 var hashCount = function (seatMap) {
     var count = 0;
-    for (var j = 0; j < seatMap.length; j++) {
-        for (var i = 0; i < seatMap[j].length; i++) {
-            if (seatMap[j][i] === '#')
+    for (var j_1 = 0; j_1 < seatMap.length; j_1++) {
+        for (var i_1 = 0; i_1 < seatMap[j_1].length; i_1++) {
+            if (seatMap[j_1][i_1] === '#')
                 count++;
         }
     }
@@ -150,10 +139,17 @@ var hashCount = function (seatMap) {
 };
 // const numberOfSeats = (seatMap: string[][]) => {
 //     var newSeatMap: string[][] = roundPass(seatMap)
-//     if (arrayEquals(seatMap, newSeatMap)) {
-//         console.log('Here: ', newSeatMap)
-//         console.log(hashCount(seatMap))
-//         return
+//     if (isEqual(seatMap, newSeatMap)) {
+//         // console.log('Here: ', newSeatMap)
+//         // console.log(isEqual(newSeatMap, newSeventhMap))
+//         // console.log(isEqual(seatMap, newSeatMap))
+//         // console.log(isEqual(newSeatMap, seatMap))
+//         // console.log(isEqual(seatMap, newSeventhMap))
+//         // console.log(isEqual(newSeventhMap, seatMap))
+//         // console.log(hashCount(newSeatMap))
+//         // console.log(hashCount(seatMap))
+//         // console.log(hashCount(newSeventhMap))
+//         return 
 //     }
 //     numberOfSeats(newSeatMap)
 // }

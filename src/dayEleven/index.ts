@@ -194,8 +194,6 @@ const isEqual = (firstArray, secondArray): boolean => {
 }
 
 console.log(isEqual(secondSeatMapArray, newSecondMap))
-console.log(secondSeatMapArray)
-console.log(newSecondMap)
 console.log(isEqual(thirdSeatMapArray, newThirdMap))
 console.log(isEqual(fourthSeatMapArray, newFourthMap))
 console.log(isEqual(fifthSeatMapArray, newFifthMap))
@@ -203,9 +201,9 @@ console.log(isEqual(sixthSeatMapArray, newSixthMap))
 console.log(isEqual(sixthSeatMapArray, newSeventhMap))
 
 const hashCount = (seatMap) => {
-    var count: number = 0
-    for (var j = 0; j < seatMap.length; j++) {
-        for (var i = 0; i < seatMap[j].length; i++) {
+    let count: number = 0
+    for (let j = 0; j < seatMap.length; j++) {
+        for (let i = 0; i < seatMap[j].length; i++) {
             if (seatMap[j][i] === '#') count++
         }
     }
@@ -215,10 +213,17 @@ const hashCount = (seatMap) => {
 // const numberOfSeats = (seatMap: string[][]) => {
 //     var newSeatMap: string[][] = roundPass(seatMap)
     
-//     if (arrayEquals(seatMap, newSeatMap)) {
-//         console.log('Here: ', newSeatMap)
-//         console.log(hashCount(seatMap))
-//         return
+//     if (isEqual(seatMap, newSeatMap)) {
+//         // console.log('Here: ', newSeatMap)
+//         // console.log(isEqual(newSeatMap, newSeventhMap))
+//         // console.log(isEqual(seatMap, newSeatMap))
+//         // console.log(isEqual(newSeatMap, seatMap))
+//         // console.log(isEqual(seatMap, newSeventhMap))
+//         // console.log(isEqual(newSeventhMap, seatMap))
+//         // console.log(hashCount(newSeatMap))
+//         // console.log(hashCount(seatMap))
+//         // console.log(hashCount(newSeventhMap))
+//         return 
 //     }
 //     numberOfSeats(newSeatMap)
 // }
