@@ -190,13 +190,15 @@ var hashCount = function (seatMap) {
     }
     return count;
 };
+var count = 0;
 var numberOfSeats = function (seatMap) {
-    console.log('Original Seats: ', hashCount(seatMap));
+    count++;
+    console.log("Original Seats " + count + ": ", hashCount(seatMap));
     var newSeatMap = roundPass(seatMap);
     if (isEqual(seatMap, newSeatMap)) {
         return hashCount(newSeatMap);
     }
-    console.log('New Seats: ', hashCount(newSeatMap));
+    console.log("New Seats " + count + ": ", hashCount(newSeatMap));
     return numberOfSeats(newSeatMap);
 };
 console.log(numberOfSeats(seatMapArray));

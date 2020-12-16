@@ -202,14 +202,16 @@ const hashCount = (seatMap) => {
     return count
 }
 
+var count: number = 0
 const numberOfSeats = (seatMap: string[][]): number => {
-    console.log('Original Seats: ', hashCount(seatMap))
+    count++
+    console.log(`Original Seats ${count}: `, hashCount(seatMap))
     var newSeatMap: string[][] = roundPass(seatMap)
     
     if (isEqual(seatMap, newSeatMap)) {
         return hashCount(newSeatMap)
     }
-    console.log('New Seats: ', hashCount(newSeatMap))
+    console.log(`New Seats ${count}: `, hashCount(newSeatMap))
     return numberOfSeats(newSeatMap)
 }
 
